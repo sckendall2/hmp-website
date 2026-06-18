@@ -1,0 +1,23 @@
+# Source assets — large originals, kept locally but not in the repo
+assets/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Windows
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local server config
+.claude/
+
+# Working notes
+brief.txt
+brief.txt~
+*~

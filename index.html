@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Heather Mumford Project — old-school country, blues, bluegrass &amp; swing based in the Boston area.">
+  <title>The Heather Mumford Project</title>
+  <!--
+    PREVIEW
+    Open index.html directly in your browser, or run a local server:
+      python3 -m http.server 8080
+    then visit http://localhost:8080
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ─── Navigation ─────────────────────────────────────────── -->
+  <nav id="main-nav" aria-label="Site navigation">
+    <a href="#home" class="nav-brand" aria-label="The Heather Mumford Project — home">
+      The Heather Mumford Project
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#shows">Shows</a></li>
+      <li><a href="#listen">Listen</a></li>
+      <li><a href="#signup" class="nav-cta">Stay in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── Hero ───────────────────────────────────────────────── -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">The Heather Mumford Project</h1>
+      <p class="tagline">Old-school country, blues, bluegrass &amp; swing</p>
+    </div>
+    <a href="#about" class="hero-scroll" aria-label="Scroll to About section">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ─── About ──────────────────────────────────────────────── -->
+  <section id="about" class="section section-light">
+    <div class="container">
+      <h2 class="section-title"><span>About</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-bio">
+            The Heather Mumford Project is the latest collaboration by a group of seasoned
+            musicians, led by Heather on vocals, uke, and fiddle. Their music is a beautiful
+            Americana harmony of Country, Bluegrass, Folk, and Blues, including some original
+            material. Come for the pickin' &amp; grinnin' — and playing the blues so sad,
+            you'll cry.
+          </p>
+          <ul class="members" aria-label="Band members">
+            <li><strong>Heather Mumford</strong><span>Vocals, Ukulele, Fiddle</span></li>
+            <li><strong>Gary Kemp</strong><span>Resonator Guitar, Vocals</span></li>
+            <li><strong>Harris Kendrick</strong><span>Guitar, Vocals</span></li>
+            <li><strong>Sam Kendall</strong><span>Mandolin, Vocals</span></li>
+            <li><strong>Reid Plouffe</strong><span>Upright Bass</span></li>
+          </ul>
+        </div>
+        <div class="about-photo-wrap">
+          <img
+            src="images/gallery/02.jpg"
+            alt="The Heather Mumford Project at the Jason Russell House Concert Series"
+            class="about-photo"
+            loading="lazy"
+            width="900"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Photos ─────────────────────────────────────────────── -->
+  <section id="photos" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title section-title--gold"><span>Photos</span></h2>
+      <div class="gallery" id="gallery" role="list" aria-label="Band photos">
+        <img src="images/gallery/01.jpg" alt="The band performing at the Roslindale UnPorchfest" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/02.jpg" alt="The band posing at an outdoor Porchfest stage" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/03.jpg" alt="The Heather Mumford Project performing outdoors at Jason Russell House" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/04.jpg" alt="Playing on a porch at the Somerville Porchfest" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/05.jpg" alt="The full band at Porter Square Books" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/06.jpg" alt="Playing at the Village Social Club" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/07.jpg" alt="A duo set at Cafe Zing" loading="lazy" role="listitem" tabindex="0">
+        <img src="images/gallery/10.jpg" alt="Performing at Somerville Porchfest" loading="lazy" role="listitem" tabindex="0">
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true"
+       aria-label="Photo viewer" hidden>
+    <button class="lightbox-close" aria-label="Close photo viewer">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <img class="lightbox-img" src="" alt="">
+    <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <!-- ─── Shows ──────────────────────────────────────────────── -->
+  <section id="shows" class="section section-shows">
+    <div class="container">
+      <h2 class="section-title section-title--gold"><span>Shows</span></h2>
+      <div class="shows-list">
+
+        <div class="show-row">
+          <span class="show-date">Sat, Jun 20</span>
+          <div class="show-details">
+            <span class="show-venue">Strummin' Up to Boston</span>
+            <span class="show-meta">Performance 5:15pm &bull; Workshop 2:15pm &mdash; Newton, MA</span>
+          </div>
+          <a href="https://www.strummerville.org/events/strummin-up-to-boston-2026" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Tue, Jun 23</span>
+          <div class="show-details">
+            <span class="show-venue">The Midway Cafe</span>
+            <span class="show-meta">8:30pm &mdash; Jamaica Plain, MA</span>
+          </div>
+          <a href="https://midwaycafe.com/" class="show-link" target="_blank" rel="noopener noreferrer">Venue</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Mon, Jun 29</span>
+          <div class="show-details">
+            <span class="show-venue">Bluegrass Mondays</span>
+            <span class="show-meta">8pm &mdash; Remnant Brewing, Cambridge, MA</span>
+          </div>
+          <a href="https://www.remnantsomerville.com/live/bluegrass-every-monday-56dry" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Sat, Jul 11</span>
+          <div class="show-details">
+            <span class="show-venue">Shelburne Falls PorchFest</span>
+            <span class="show-meta">Heather &amp; Harris duo &mdash; Shelburne Falls, MA</span>
+          </div>
+          <a href="https://www.shelburnefallsporchfestival.com/" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Fri, Jul 31</span>
+          <div class="show-details">
+            <span class="show-venue">Square Root</span>
+            <span class="show-meta">9:30pm &mdash; Roslindale, MA</span>
+          </div>
+          <a href="https://squarerootrozzie.com/" class="show-link" target="_blank" rel="noopener noreferrer">Venue</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Sat, Aug 22</span>
+          <div class="show-details">
+            <span class="show-venue">Jamaica Plain PorchFest</span>
+            <span class="show-meta">Details TBA</span>
+          </div>
+          <a href="https://www.jpporchfest.org" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Mon, Aug 31</span>
+          <div class="show-details">
+            <span class="show-venue">Bluegrass Mondays</span>
+            <span class="show-meta">8pm &mdash; Remnant Brewing, Cambridge, MA</span>
+          </div>
+          <a href="https://www.remnantsomerville.com/live/bluegrass-every-monday-56dry" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Sat, Sep 19</span>
+          <div class="show-details">
+            <span class="show-venue">Roslindale/Melrose PorchFest</span>
+            <span class="show-meta">Details TBA</span>
+          </div>
+        </div>
+
+        <div class="show-row">
+          <span class="show-date">Sat, Sep 26</span>
+          <div class="show-details">
+            <span class="show-venue">Brookline PorchFest</span>
+            <span class="show-meta">Details TBA</span>
+          </div>
+          <a href="https://www.brooklineporchfest.org/" class="show-link" target="_blank" rel="noopener noreferrer">Details</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Listen / Links ─────────────────────────────────────── -->
+  <section id="listen" class="section section-light">
+    <div class="container">
+      <h2 class="section-title"><span>Listen &amp; Follow</span></h2>
+      <div class="listen-links">
+
+        <a href="https://www.instagram.com/heatherm_music/"
+           target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </div>
+          <span>Instagram</span>
+        </a>
+
+        <a href="https://soundcloud.com/heather-mumford-project"
+           target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M1.175 12.225c-.017.114-.028.229-.028.35 0 1.217.988 2.206 2.206 2.206h15.232c1.218 0 2.206-.988 2.206-2.206 0-1.1-.808-2.017-1.874-2.178a3.988 3.988 0 0 0-3.946-3.47 3.97 3.97 0 0 0-2.127.614 6.054 6.054 0 0 0-4.773-2.326 6.066 6.066 0 0 0-6.066 6.066c0 .315.025.624.074.926L1.175 12.225z"/>
+            </svg>
+          </div>
+          <span>SoundCloud</span>
+        </a>
+
+        <a href="https://www.youtube.com/@heathermumfordproject"
+           target="_blank" rel="noopener noreferrer" class="listen-card">
+          <div class="listen-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+            </svg>
+          </div>
+          <span>YouTube</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Email Signup ────────────────────────────────────────── -->
+  <section id="signup" class="section section-signup">
+    <div class="container">
+      <h2 class="section-title section-title--gold"><span>Stay in Touch</span></h2>
+      <p class="signup-sub">Show announcements and news — no spam, ever.</p>
+
+      <form id="signup-form" class="signup-form" novalidate>
+        <div class="signup-fields">
+          <label for="email-input" class="sr-only">Your email address</label>
+          <input
+            type="email"
+            id="email-input"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+          >
+          <button type="submit">Sign Up</button>
+        </div>
+        <p class="signup-error" id="signup-error" role="alert" hidden></p>
+      </form>
+
+      <div id="signup-success" class="signup-success" hidden>
+        <p>Thanks — you're on the list. We'll see you at a show.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <img
+      src="images/logo-dark.png"
+      alt="The Heather Mumford Project"
+      class="footer-logo"
+      loading="lazy"
+      width="600"
+    >
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="https://www.instagram.com/heatherm_music/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://soundcloud.com/heather-mumford-project" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+      <a href="https://www.youtube.com/@heathermumfordproject" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 The Heather Mumford Project</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
