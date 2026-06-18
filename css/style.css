@@ -360,6 +360,7 @@ ul   { list-style: none; }
   color: #3d2e1e;
   margin-bottom: 2rem;
 }
+.about-bio + .about-bio { margin-top: -1rem; }
 
 .members {
   display: flex;
