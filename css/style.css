@@ -530,6 +530,17 @@ ul   { list-style: none; }
 }
 
 /* Shows list (replaces .shows-placeholder when dates are live) */
+.shows-subhead {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 230, 200, 0.5);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
 .shows-list {
   max-width: 680px;
   margin: 0 auto;
