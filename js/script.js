@@ -97,11 +97,13 @@ async function submitToMailingList(email) {
 const signupForm    = document.getElementById('signup-form');
 const signupSuccess = document.getElementById('signup-success');
 const signupError   = document.getElementById('signup-error');
+const signupInput   = document.getElementById('email-input');
+const signupAgain   = document.getElementById('signup-again');
 
 signupForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  const email = document.getElementById('email-input').value.trim();
+  const email = signupInput.value.trim();
   const btn   = signupForm.querySelector('button[type="submit"]');
 
   btn.disabled    = true;
@@ -122,4 +124,15 @@ signupForm.addEventListener('submit', async e => {
     btn.disabled    = false;
     btn.textContent = 'Sign Up';
   }
+});
+
+// "Add another email" — reset the form so a second person can sign up
+signupAgain.addEventListener('click', () => {
+  const btn = signupForm.querySelector('button[type="submit"]');
+  signupForm.reset();
+  signupSuccess.hidden = true;
+  signupForm.hidden    = false;
+  btn.disabled    = false;
+  btn.textContent = 'Sign Up';
+  signupInput.focus();
 });

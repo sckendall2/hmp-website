@@ -721,6 +721,24 @@ ul   { list-style: none; }
   color: var(--gold-light);
 }
 
+.signup-again {
+  display: inline-block;
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201, 151, 74, 0.4);
+  padding: 0 0 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.signup-again:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
 .signup-contact {
   text-align: center;
   font-size: 0.9375rem;
