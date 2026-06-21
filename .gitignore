@@ -14,8 +14,10 @@ Thumbs.db
 *.swp
 *.swo
 
-# Local server config
-.claude/
+# Local server config — ignore everything except the shared project skills
+.claude/*
+!.claude/skills/
+!.claude/skills/**
 
 # Working notes
 brief.txt
