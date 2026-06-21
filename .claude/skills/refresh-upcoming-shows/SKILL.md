@@ -24,6 +24,22 @@ The Shows markup is a series of `.show-row` blocks inside `<div class="shows-lis
 
 Rows are listed in chronological order; keep them that way.
 
+**Shows are grouped by year.** Each year present in the list gets its own subhead followed by its own `.shows-list` containing that year's rows:
+
+```html
+<h3 class="shows-subhead">Upcoming in 2026</h3>
+<div class="shows-list">
+  ...2026 rows, chronological...
+</div>
+
+<h3 class="shows-subhead">Upcoming in 2027</h3>
+<div class="shows-list">
+  ...2027 rows, chronological...
+</div>
+```
+
+Subhead text is always `Upcoming in <year>`. Year groups appear in ascending order. The year is **not** repeated in each `.show-date` (dates stay `Sat, Jul 11`) — the subhead carries it.
+
 ## Phase 1 — Remove past shows
 
 1. Read the current `.show-row` entries and identify every show dated before today.
@@ -32,12 +48,13 @@ Rows are listed in chronological order; keep them that way.
    - Note: recurring venues (e.g. Remnant Brewing, Midway Cafe) may already be in the list — don't duplicate.
    - Porch fests are generally already covered by the closing "shocking variety of porch fests" — ask before adding a specific one.
 4. Remove the past `.show-row` blocks.
+5. If removing past shows leaves a year group empty, delete that whole group — both its `<h3 class="shows-subhead">` and its now-empty `<div class="shows-list">`. (E.g. once all 2026 shows are past, the "Upcoming in 2026" subhead and its list go away, leaving "Upcoming in 2027" as the first group.)
 
 ## Phase 2 — Add new upcoming shows
 
 1. Ask the user for new shows. For each, collect: date, venue name, time, city/state, and any event URL they already have.
-2. Insert each as a new `.show-row` in correct chronological position.
-3. Match the existing date format exactly: `Sat, Jul 11` (abbreviated weekday, abbreviated month, no leading zero on day).
+2. Insert each as a new `.show-row` under the subhead for its year, in correct chronological position within that year's `.shows-list`. If a show falls in a year that has no group yet, create a new `<h3 class="shows-subhead">Upcoming in <year></h3>` + `<div class="shows-list">` block, placed so year groups stay in ascending order.
+3. Match the existing date format exactly: `Sat, Jul 11` (abbreviated weekday, abbreviated month, no leading zero on day, no year — the subhead carries the year).
 4. Use `&mdash;` between time and location and `&bull;` to separate multiple time items, matching existing rows. Use `&amp;` for ampersands.
 5. For the link, apply the link policy in Phase 3 — don't just drop in whatever URL was given.
 
