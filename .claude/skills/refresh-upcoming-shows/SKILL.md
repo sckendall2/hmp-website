@@ -5,7 +5,9 @@ description: Refresh the Shows section of the HMP website — remove past shows 
 
 # Refresh Upcoming Shows
 
-Updates the Shows section in `index.html`. Work through the three phases in order, then verify and commit.
+Updates the Shows section in `index.html`. Work through the phases in order, then preview, get approval, and publish.
+
+**Run every command yourself** — starting the local web server, all `git` operations (status, add, commit, push), everything. Assume the person running this skill has never heard of git and should never be asked to type a command or use a terminal. Their only jobs are: answer questions about shows, and look at the preview and say whether it's good. Narrate what you're doing in plain language, but do the mechanics yourself.
 
 Today's date is available in context — treat any show whose date is strictly before today as "past."
 
@@ -73,8 +75,11 @@ For each row currently labeled "Venue", **dig hard** for a precise event page th
 
 Report which links you upgraded, which you couldn't, and why.
 
-## Finish
+## Phase 4 — Preview, approve, then publish
 
-1. If a local server is running, the user can eyeball the result; otherwise just confirm the markup.
-2. Show the user a summary of changes (removed shows, added shows, link upgrades).
-3. Commit and push only when the user approves, following the repo's existing commit style.
+Do these in order. **The approval gate in step 3 is mandatory — never push before the user has looked at the page and said it's good.**
+
+1. **Start the local preview yourself.** Launch the local web server (e.g. via the preview tooling, or `python3 -m http.server` from the repo) — do not ask the user to run anything. Give them the exact URL to open (e.g. http://localhost:8000) and tell them which section to look at.
+2. **Summarize the changes** in plain language: shows removed, shows added, any About past-venues additions, and which links you set to "Details" vs "Venue" (and any you couldn't upgrade).
+3. **Explicitly ask the user to look at the page and approve.** Say something like: "Please open the page, look at the Shows section, and tell me if it looks right." **Wait for a clear yes.** If they want changes, make them and return to step 1. Do not proceed to step 4 until they approve.
+4. **Only after approval, publish it yourself:** `git add` the changed files, commit following the repo's existing commit style, and `git push`. Then confirm to the user in plain language that the change is live and will appear on the website shortly.
