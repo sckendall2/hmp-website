@@ -11,6 +11,14 @@ Updates the Shows section in `index.html`. Work through the phases in order, the
 
 Today's date is available in context — treat any show whose date is strictly before today as "past."
 
+## Phase 0 — Sync with remote
+
+**Before reading or editing `index.html`, sync the local repo with `origin/main`.** Bandmates may push changes directly (e.g. via the GitHub web UI) without this skill, so a local checkout can be stale.
+
+1. Run `git status` — if there are unexpected uncommitted changes, stop and ask the user before touching anything (don't clobber in-progress work).
+2. Run `git fetch origin`, then compare `main..origin/main`. If origin has commits the local branch doesn't, fast-forward pull (`git pull --ff-only origin main`) before proceeding.
+3. Only after the local checkout matches `origin/main` should you read `index.html` and start Phase 1. Editing against a stale base risks silently re-adding or re-removing content someone else already changed.
+
 The Shows markup is a series of `.show-row` blocks inside `<div class="shows-list">`:
 
 ```html
