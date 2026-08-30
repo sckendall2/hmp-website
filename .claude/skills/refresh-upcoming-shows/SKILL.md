@@ -7,7 +7,9 @@ description: Refresh the Shows section of the HMP website — remove past shows 
 
 Updates the Shows section in `index.html`. Work through the phases in order, then preview, get approval, and publish.
 
-**Run every command yourself** — starting the local web server, all `git` operations (status, add, commit, push), everything. Assume the person running this skill has never heard of git and should never be asked to type a command or use a terminal. Their only jobs are: answer questions about shows, and look at the preview and say whether it's good. Narrate what you're doing in plain language, but do the mechanics yourself.
+**Run every command yourself** — the preview, all `git` operations (status, add, commit, push), everything. Nobody should be asked to type a command, use a terminal, or click Merge on GitHub to finish a change. Whoever is running this, their only jobs are: answer questions about shows, and look at the preview and say whether it's good. Do the mechanics yourself.
+
+Pitch the narration to who's asking. For a bandmate, explain in plain language and skip the git vocabulary entirely. For Sam, who maintains the repo, talk normally — name the commands and the failure modes; there's no need to pretend he's never heard of git. Either way the division of labor is the same: you run everything, they only make decisions about shows.
 
 Today's date is available in context — treat any show whose date is strictly before today as "past."
 
@@ -87,7 +89,18 @@ Report which links you upgraded, which you couldn't, and why.
 
 Do these in order. **The approval gate in step 3 is mandatory — never push before the user has looked at the page and said it's good.**
 
-1. **Start the local preview yourself.** Launch the local web server (e.g. via the preview tooling, or `python3 -m http.server` from the repo) — do not ask the user to run anything. Give them the exact URL to open (e.g. http://localhost:8000) and tell them which section to look at.
+1. **Show them the rendered page yourself.** The goal is that they *look at the real Shows section* before anything is published — the mechanism doesn't matter, so use whichever of these works in the environment you're in, and never ask them to run anything:
+   - **A local dev server**, when the repo sits somewhere the preview process can actually read.
+   - **Publish the page as an Artifact.** Works identically on a laptop and in a browser-only session, and gives a link that can be forwarded to the band for review.
+   - **Serve a copy from a scratch directory**, when the repo itself is unreadable (see the caveat below). Copy the *whole* site — `index.html`, `css/`, `js/`, and all of `images/`, not just `images/gallery/` — or the hero photo 404s and the page looks broken for reasons that have nothing to do with your edit.
+
+   Then give them the exact URL and say which section to look at.
+
+   **Known trap on Sam's Mac:** the repo lives under `~/Documents`, which macOS TCC protects. The preview subprocess doesn't inherit that permission, so `python3 -m http.server` dies at startup on `os.getcwd()` and any server rooted in the repo 404s every file — `stat` succeeds while reads fail, so it looks like a working server serving nothing. This is not a Python bug and not worth re-debugging; fall back to an Artifact or a scratch copy. It resolves for good if the repo ever moves out of `~/Documents`.
 2. **Summarize the changes** in plain language: shows removed, shows added, any About past-venues additions, and which links you set to "Details" vs "Venue" (and any you couldn't upgrade).
 3. **Explicitly ask the user to look at the page and approve.** Say something like: "Please open the page, look at the Shows section, and tell me if it looks right." **Wait for a clear yes.** If they want changes, make them and return to step 1. Do not proceed to step 4 until they approve.
-4. **Only after approval, publish it yourself:** `git add` the changed files, commit following the repo's existing commit style, and `git push`. Then confirm to the user in plain language that the change is live and will appear on the website shortly.
+4. **Only after approval, publish it yourself:** `git add` the changed files, commit following the repo's existing commit style, and `git push`.
+
+   **Push to `main` directly — do not open a pull request.** GitHub Pages publishes this site from `main`, so a PR leaves the change invisible until somebody clicks Merge, which is exactly the git-shaped chore this skill exists to avoid. This matters most in a cloud or browser-based session, where branch-and-PR is the usual default; override it here. Committing straight to `main` is the established workflow for this repo — the bandmates do it through the GitHub web UI already.
+
+5. **Confirm it actually went live.** Pages takes a minute or so to rebuild, so don't just report success off a clean `git push`. Poll the live site until the change appears, then tell them in plain language that it's up. If it hasn't landed after a few minutes, say so plainly — that means the Pages build needs a look.
