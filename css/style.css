@@ -586,6 +586,20 @@ ul   { list-style: none; }
   font-style: italic;
 }
 
+.show-address {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(201, 151, 74, 0.6);
+  text-underline-offset: 2px;
+}
+
+.show-address:hover,
+.show-address:focus-visible {
+  color: var(--gold);
+  text-decoration-color: var(--gold);
+}
+
 .show-link {
   font-family: var(--font-heading);
   font-size: 0.8rem;
